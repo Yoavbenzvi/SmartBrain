@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcrypt-nodejs');
 
 const app = express();
 app.use(express.json());
@@ -79,6 +80,18 @@ app.put('/image', (req, res) => {
 	}
 })
 
-app.listen(3000, () => {
+
+// bcrypt.hash(password, null, null, function(err, hash) {
+//   		console.log(hash);
+// });
+// // Load hash from your password DB.
+// bcrypt.compare("bacon", hash, function(err, res) {
+//     // res == true
+// });
+// bcrypt.compare("veggies", hash, function(err, res) {
+//     // res = false
+// });
+
+app.listen(3001, () => {
 	console.log('app is  running on port 3000');
 })
