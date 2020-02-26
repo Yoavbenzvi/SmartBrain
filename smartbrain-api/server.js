@@ -58,14 +58,12 @@ app.post('/signin', (req, res) => {
 
 app.post('/register', (req, res) => {
 	const { email, name, password } = req.body;
-	database.users.push({
-		id: '125',
-		name: name,
+	db('users').insert({
 		email: email,
-		entries: 0,
+		name: name,
 		joined: new Date()
-	});
-	res.json(database.users[database.users.length-1]);
+	}).then(console.log)
+	res.json('success');
 })
 
 app.get('/profile/:id', (req, res) => {
